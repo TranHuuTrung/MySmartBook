@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="@color/b_g_view_color"
+        >
+
+        <GridLayout
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/icon_listview"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            >
+        </GridLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Khám Phá"
+            android:textSize="20sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginRight="5dp"
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="5dp"
+            >
+        <EditText
+            android:layout_width="250dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:hint="Search ....."
+            android:textColor="@color/colorBlack"
+            android:background="@drawable/round_search"
+            android:padding="10dp"
+            android:inputType="text"
+            android:layout_gravity="center"
+            />
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:background="@drawable/search"
+            android:layout_gravity="center"
+          />
+        </LinearLayout>
+        
+    </LinearLayout>
+    <ListView
+        android:id="@+id/lv_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ListView>
+
+</LinearLayout>
