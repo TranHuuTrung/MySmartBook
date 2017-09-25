@@ -1,24 +1,128 @@
 package com.example.admin.smartbook;
-
+import android.content.Intent;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.os.PersistableBundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 
-public class ListBookActivity extends AppCompatActivity {
-    ListView lv_view;
-    //các hình ảnh của từng Item trong List View
-    public static int[] imgAvatar = {R.drawable.icon_book, R.drawable.icon_like, R.drawable.icon_test, R.drawable.icon_write};
-    //nội dung của từng Item trong List View
-    public  static String [] tvNoiDung ={"Pháp Luật", "Phưu Lưu", "Nấu Ăn - Ẩm Thực", "Lãng Mạn "};
+import java.util.ArrayList;
+
+public class ListBookActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+    private ActionBarDrawerToggle actionBarDrawerToggle;
+    private DrawerLayout drawerLayout;
+    ListView navList;
+    private FragmentTransaction fragmentTransaction;
+    private FragmentManager fragmentManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_book);
 
-        lv_view = (ListView) findViewById(R.id.lv_view);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+        navList = (ListView) findViewById(R.id.navList);
 
-        CustomAdapter adapter = new CustomAdapter(ListBookActivity.this, tvNoiDung,imgAvatar );
-        lv_view.setAdapter(adapter);
+        ArrayList<String> navArr = new ArrayList<String>();
+        navArr.add("Home");
+        navArr.add("How to Read");
+        navArr.add("WriteStory");
+        navArr.add("Test");
+        navArr.add("Rating");
+        navList.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, navArr);
+        navList.setAdapter(adapter);
+        navList.setOnItemClickListener(this);
+
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.opendrawer, R.string.closedrawer);
+        drawerLayout.setDrawerListener(actionBarDrawerToggle);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        //getActionBar().setDisplayHomeAsUpEnabled(true);
+        fragmentManager = getSupportFragmentManager();
+        loadSelection(0);
     }
+
+    private void loadSelection(int i) {
+        navList.setItemChecked(i, true);
+        switch (i) {
+            case 0:
+                HomeFragment homeFragment = new HomeFragment();
+                fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragmentholder, homeFragment);
+                fragmentTransaction.commit();
+                break;
+            case 1:
+                MyFragment1 myFragment1 = new MyFragment1();
+                fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragmentholder, myFragment1);
+                fragmentTransaction.commit();
+                break;
+            case 2:
+                MyFragment2 myFragment2 = new MyFragment2();
+                fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragmentholder, myFragment2);
+                fragmentTransaction.commit();
+                break;
+            case 3:
+                MyFragment3 myFragment3 = new MyFragment3();
+                fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragmentholder, myFragment3);
+                fragmentTransaction.commit();
+                break;
+            case 4:
+                MyFragment4 myFragment4 = new MyFragment4();
+                fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragmentholder, myFragment4);
+                fragmentTransaction.commit();
+                break;
+
+            case 5:
+                break;
+
+        }
+    }
+
+    @Override
+    public void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        actionBarDrawerToggle.syncState();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.all) {
+            return true;
+        } else if (id == android.R.id.home) {
+            if (drawerLayout.isDrawerOpen(navList)) {
+                drawerLayout.closeDrawer(navList);
+            } else {
+                drawerLayout.openDrawer(navList);
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        loadSelection(position);
+        drawerLayout.closeDrawer(navList);
+    }
+
 }

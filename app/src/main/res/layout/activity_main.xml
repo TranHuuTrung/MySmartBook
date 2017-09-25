@@ -14,52 +14,49 @@
         android:layout_marginBottom="20dp"
 
         />
-    <LinearLayout
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
-        android:layout_weight="1"
-        android:background="@color/b_g_search_color"
-        android:layout_marginBottom="10dp"
-        >
-        <EditText
-            android:id="@+id/edt_search"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:hint="Search anything......"
-            android:inputType="text"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:background="@drawable/round_search"
-            android:padding="10dp"
-            android:textColor="@color/colorBlack"
-            android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp"
-            />
-        <Button
-            android:id="@+id/btn_search"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:background="@drawable/search"
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="5dp"
-            android:gravity="center_vertical"
-            android:layout_weight="7"
-            />
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="Tri Thức trong tầm tay bạn"
+        android:textStyle="italic"
+        android:textSize="20sp"
+        android:textColor="#3883de"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="Đoạn này để chèn cái load vào"
+        android:gravity="center"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="Ứng dụng đọc sách thông minh"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:textStyle="italic"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:text="Miễn Phí"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:textStyle="bold"
+        />
 
-    </LinearLayout>
     <LinearLayout
-        android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_weight="1"
         android:gravity="center"
-        >
+        android:orientation="vertical">
+
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            >
+            android:orientation="horizontal">
+
             <Button
                 android:id="@+id/btn_book"
                 android:layout_width="100dp"
@@ -67,37 +64,44 @@
                 android:background="@drawable/icon_book"
 
                 />
+
             <Space
                 android:layout_width="50dp"
-                android:layout_height="100dp" />
+                android:layout_height="80dp" />
+
             <Button
                 android:id="@+id/btn_write"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:background="@drawable/icon_write"/>
+                android:background="@drawable/icon_write" />
 
         </LinearLayout>
+
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            android:layout_height="10dp" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
-            >
+            android:layout_marginBottom="15dp">
+
             <Button
                 android:id="@+id/btn_like"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:background="@drawable/icon_like"/>
+                android:background="@drawable/icon_like"
+                android:onClick="showRating" />
+
             <Space
                 android:layout_width="50dp"
                 android:layout_height="100dp" />
+
             <Button
                 android:id="@+id/btn_test"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:background="@drawable/icon_test"/>
+                android:background="@drawable/icon_test" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
