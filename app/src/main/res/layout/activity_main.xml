@@ -5,29 +5,39 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/b_g_view_color"
+    android:layout_gravity="center"
    >
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="200dp"
-        android:layout_weight="1"
+        android:layout_weight="3"
         android:background="@drawable/image_tittle"
-        android:layout_marginBottom="20dp"
 
         />
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="30dp"
         android:gravity="center"
         android:text="Tri Thức trong tầm tay bạn"
         android:textStyle="italic"
         android:textSize="20sp"
         android:textColor="#3883de"
+        android:layout_weight="2"
         />
-    <TextView
+
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        style="?android:attr/action"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="Đoạn này để chèn cái load vào"
-        android:gravity="center"/>
+        android:layout_height="50dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="5dp"
+         />
+    <LinearLayout
+        android:paddingTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="vertical">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="30dp"
@@ -44,64 +54,7 @@
         android:gravity="center"
         android:textStyle="bold"
         />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btn_book"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@drawable/icon_book"
-
-                />
-
-            <Space
-                android:layout_width="50dp"
-                android:layout_height="80dp" />
-
-            <Button
-                android:id="@+id/btn_write"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@drawable/icon_write" />
-
-        </LinearLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp">
-
-            <Button
-                android:id="@+id/btn_like"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@drawable/icon_like"
-                android:onClick="showRating" />
-
-            <Space
-                android:layout_width="50dp"
-                android:layout_height="100dp" />
-
-            <Button
-                android:id="@+id/btn_test"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@drawable/icon_test" />
-        </LinearLayout>
     </LinearLayout>
+
 </LinearLayout>
+

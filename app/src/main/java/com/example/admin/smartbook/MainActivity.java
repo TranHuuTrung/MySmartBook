@@ -2,41 +2,41 @@ package com.example.admin.smartbook;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
+import android.os.SystemClock;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class MainActivity extends AppCompatActivity {
-    private Button btn_book;
-    private Button btn_write;
-
+    ProgressBar bar;
+    //khai báo handler class để xử lý đa tiến trình
+    Handler handler;
+    //dùng AtomicBoolean để thay thế cho boolean
+    AtomicBoolean isrunning=new AtomicBoolean(false);
+    //boolean
+    TextView lblmsg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        btn_book = (Button) findViewById(R.id.btn_book);
-        btn_write = (Button) findViewById(R.id.btn_write);
-        //xét sự kiện cho buuton btn_book
-        btn_book.setOnClickListener(new View.OnClickListener() {
+        bar = (ProgressBar) findViewById(R.id.progressBar1);
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void onClick(View v) {
-                Intent Bookintent = new Intent(MainActivity.this, ListBookActivity.class);
-                startActivity(Bookintent);
-        }
-        });
-
-        //xét sự kiện cho button btn_write
-        btn_write.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent Writeintent = new Intent(MainActivity.this, WriteActivity.class);
-                startActivity(Writeintent);
+            public void run() {
+                Intent intent = new Intent(MainActivity.this, ListBookActivity.class);
+                startActivity(intent);
+                finish();
             }
-        });
-
+        }, 4000);
     }
     /* public void showRating(View view){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);

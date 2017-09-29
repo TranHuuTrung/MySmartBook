@@ -32,7 +32,7 @@ public class CustomAdapter extends BaseAdapter{
     public Object getItem(int position) {
         return position;
     }
-   //trả về vị trí củra mảng image list item
+   //trả về vị trí của mảng image list item
     @Override
     public long getItemId(int position) {
         return 0;
@@ -58,5 +58,6 @@ public class CustomAdapter extends BaseAdapter{
             }
         });
         return rowView;
+       // return convertView;
     }
 }

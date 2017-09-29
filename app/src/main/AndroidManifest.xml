@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ListBookActivity"
-            android:theme="@style/Base.V12.Widget.AppCompat.EditText"></activity>
+            android:theme="@style/AppTheme"></activity>
         <activity android:name=".WriteActivity" ></activity>
     </application>
 
