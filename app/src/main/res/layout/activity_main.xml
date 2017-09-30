@@ -3,57 +3,120 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     android:orientation="vertical"
-    android:background="@color/b_g_view_color"
-    android:layout_gravity="center"
    >
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="200dp"
-        android:layout_weight="3"
-        android:background="@drawable/image_tittle"
-
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:gravity="center"
-        android:text="Tri Thức trong tầm tay bạn"
-        android:textStyle="italic"
-        android:textSize="20sp"
-        android:textColor="#3883de"
+    <Space
         android:layout_weight="2"
-        />
-
-    <ProgressBar
-        android:id="@+id/progressBar1"
-        style="?android:attr/action"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="5dp"
-         />
+        android:layout_height="@dimen/margin_0px" />
     <LinearLayout
-        android:paddingTop="10dp"
+        android:id="@+id/allBtn"
+        android:gravity="center"
+        android:layout_weight="3"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="0px"
+        android:layout_alignParentBottom="true"
         android:orientation="vertical">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:text="Ứng dụng đọc sách thông minh"
-        android:textSize="20sp"
-        android:gravity="center"
-        android:textStyle="italic"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:text="Miễn Phí"
-        android:textSize="20sp"
-        android:gravity="center"
-        android:textStyle="bold"
-        />
+        <Space
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_0px" />
+        <LinearLayout
+            android:layout_weight="10"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_0px"
+            android:orientation="horizontal">
+            <Space
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_0px" />
+            <ImageButton
+                android:id="@+id/imgbtn_book"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:background="@drawable/book"/>
+            <Space
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_0px" />
+
+            <ImageButton
+                android:id="@+id/imgbtn_test"
+                android:onClick="imgbtn_test"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:background="@drawable/test"/>
+
+            <Space
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_0px" />
+        </LinearLayout>
+        <Space
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_0px" />
+        <LinearLayout
+            android:layout_weight="10"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_0px"
+            android:orientation="horizontal">
+            <Space
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_0px" />
+            <ImageButton
+                android:id="@+id/imgbtn_feedback"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:background="@drawable/like"/>
+            <Space
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_0px" />
+
+            <ImageButton
+                android:id="@+id/btn_hd"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:background="@drawable/hd"/>
+            <Space
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_0px" />
+        </LinearLayout>
+        <Space
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_0px" />
+        <LinearLayout
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_0px"
+            android:orientation="horizontal">
+            <Space
+                android:layout_weight="1"
+                android:layout_width="@dimen/margin_0px"
+                android:layout_height="match_parent" />
+            <Button
+                android:id="@+id/btn_Nhatki"
+                android:layout_weight="4"
+                android:layout_width="@dimen/margin_0px"
+                android:layout_height="match_parent"
+                android:text="nhật kí"
+                android:textStyle="bold"
+                android:background="@drawable/rounded_border"
+                android:backgroundTint="@color/blue_light"/>
+            <Space
+                android:layout_weight="1"
+                android:layout_width="@dimen/margin_0px"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+        <Space
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_0px" />
     </LinearLayout>
 
 </LinearLayout>

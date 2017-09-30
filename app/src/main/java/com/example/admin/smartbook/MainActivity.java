@@ -11,33 +11,30 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class MainActivity extends AppCompatActivity {
-    ProgressBar bar;
-    //khai báo handler class để xử lý đa tiến trình
-    Handler handler;
-    //dùng AtomicBoolean để thay thế cho boolean
-    AtomicBoolean isrunning=new AtomicBoolean(false);
-    //boolean
-    TextView lblmsg;
-    @Override
+    ImageButton imgbtn_book ;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        bar = (ProgressBar) findViewById(R.id.progressBar1);
-        new Handler().postDelayed(new Runnable() {
+
+        imgbtn_book = (ImageButton) findViewById(R.id.imgbtn_book);
+
+        imgbtn_book.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
+            public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ListBookActivity.class);
                 startActivity(intent);
-                finish();
             }
-        }, 4000);
-    }
+        });
+
+
+
     /* public void showRating(View view){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Rating");
@@ -48,4 +45,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }*/
+    }
 }
